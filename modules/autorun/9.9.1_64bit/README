@@ -1,0 +1,26 @@
+Module: autorun
+Description: 
+- Run script "startup.sh" in "script" folder
+- Auto login with root
+
+Step:
+1. Add startup-service.Service with systemd
+- Create systemd service "startup-service.Service" in /lib/systemd/system/
+
+	[Unit]
+	Description=startup-script Service
+	After=getty-static.service
+
+	[Service]
+	Type=simple
+	ExecStartPre=/bin/sleep 8
+	ExecStart=/bin/sh /run/initramfs/memory/data/slax/script/startup.sh
+	StandardOutput=journal+console
+
+	[Install]
+	WantedBy=multi-user.target
+	
+
+2. Enable service
+
+systemd enable startup-service.Service

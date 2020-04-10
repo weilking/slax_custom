@@ -1,0 +1,17 @@
+Module: testa
+Description: 
+- Install qt library
+- Copy testa executable (qt 5.9) to /home/app
+
+Step:
+1. Install qt library
+- change source to "buster" in /etc/apt/source.list
+- Install libraries:
+	= libqt5core5a
+	= libqt5network5
+	= libqt5serialport5
+	
+
+2. Copy testa from USB disk
+mkdir /home/app 
+cp /media/sda1/testa /home/app

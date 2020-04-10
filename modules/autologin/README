@@ -1,0 +1,14 @@
+
+Steps:
+
+1. Set login mode to autologin
+
+Edit the file /lib/systemd/system/getty@.service and change the line
+
+ExecStart=-/sbin/agetty --noclear %I $TERM
+
+to
+
+ExecStart=-/sbin/agetty --skip-login --login-options "-f root" %I 38400 linux
+
+for auto login as root user

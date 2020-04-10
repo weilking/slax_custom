@@ -1,0 +1,13 @@
+[Unit]
+Description=startup-script Service
+After=getty-static.service
+
+[Service]
+Type=simple
+ExecStartPre=/bin/sleep 8
+ExecStart=/bin/sh /run/initramfs/memory/data/slax/script/startup.sh
+StandardOutput=journal+console
+
+[Install]
+WantedBy=multi-user.target
+
